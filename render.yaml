@@ -6,4 +6,4 @@ services:
     plan: free
     autoDeploy: false
     buildCommand: pip install --no-cache-dir -r requirements.lock
-    startCommand: cd src && fastapi run --host 0.0.0.0 --port $PORT
+    startCommand: cd src && fastapi run makelele/main.py --host 0.0.0.0 --port $PORT
