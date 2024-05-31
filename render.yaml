@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: makelele
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand:
+      - pip install -r requirements.lock
+    startCommand:
+      - fastapi run makelele/main --host 0.0.0.0 --port 8000
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: API_KEY
+        value: "ThisWorldIsDone"
+      - key: DEFAULT_JOKES_PATH
+        value: makelele/assets/jokes.toml
