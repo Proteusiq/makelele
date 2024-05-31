@@ -1,3 +1,6 @@
+<img width="384" alt="joker" src="https://github.com/Proteusiq/makelele/assets/14926709/7912bdcf-0a46-441b-aa73-b6de4fcb27d2">
+
+
 # Makelele
 
 Makelele (Swahili for "noise") is a simple API for retrieving random custom jokes. Built using FastAPI, it serves various categories of jokes, making it easy to integrate humor into your applications.
