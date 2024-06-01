@@ -2,7 +2,7 @@ name: API Health Check
 
 on:
   schedule:
-    - cron: '*/20 * * * *'  # Runs every 20 minutes
+    - cron: '*/14 * * * *'  # Runs every 14 minutes to avoid renders 15 min idle spins down of freetier 
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
