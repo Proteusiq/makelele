@@ -54,16 +54,16 @@ fastapi dev makelele/main.py
 ```
 
 **Access the API**:
-Open your browser and go to http://127.0.0.1:8000/quote/{category}. Replace {category} with one of the categories defined in your jokes.toml file (e.g., golf).
+Open your browser and go to http://127.0.0.1:8000/joke/{category}. Replace {category} with one of the categories defined in your jokes.toml file (e.g., golf).
 
 ### API Endpoints
 #### Get a Random Quote
-- URL: `/quote/{category}`
+- URL: `/joke/{category}`
 - Method: `GET`
 - URL Parameters: `category=[string]` (required) - The category of quotes you want to retrieve.
 - Success Response:
     - Code: 200 OK
-    - Content: `{"quote": "A random quote from the specified category"}`
+    - Content: `{"joke": "A random quote from the specified category"}`
 - Error Response:
     - Code: 404 Not Found
     - Content: `{"detail": "Category not found"}`
@@ -79,6 +79,5 @@ This project is licensed under the MIT License.
 
 ###  Acknowledgements
 FastAPI for providing an excellent framework.
-Uvicorn for the lightning-fast ASGI server.
-
+___
 Enjoy using Makelele and bring some noise to your applications!
