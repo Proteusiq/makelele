@@ -1,0 +1,43 @@
+name: API Health Check
+
+on:
+  schedule:
+    - cron: '*/20 * * * *'  # Runs every 20 minutes
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  health_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set default API URL
+        run: echo "API_URL=${{ secrets.API_URL || 'https://makelele.onrender.com/api/health/heartbeat' }}" >> $GITHUB_ENV
+
+      - name: Check API health
+        run: |
+          scan_text='is_alive'
+          
+          response=$(curl --silent --location --request GET "$API_URL" --header 'accept: application/json')
+          status_code=$(echo "$response" | grep -o '"is_alive":true')
+
+          if [ -z "$status_code" ]; then
+              echo "API not reachable or health check failed"
+              exit 1
+          else
+              echo "API is healthy"
+          fi
+        run: |
+          scan_text='is_alive'
+          
+          response=$(curl --silent --location --request GET "$WEBSITE_URL" --header 'accept: application/json')
+          status_code=$(echo "$response" | grep -o '"is_alive":true')
+
+          if [ -z "$status_code" ]; then
+              echo "API not reachable or health check failed"
+              exit 1
+          else
+              echo "Website is healthy"
+          fi
