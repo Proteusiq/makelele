@@ -1,4 +1,4 @@
-<img width="384" alt="joker" src="https://github.com/Proteusiq/makelele/assets/14926709/7912bdcf-0a46-441b-aa73-b6de4fcb27d2">
+![joker](https://github.com/Proteusiq/makelele/assets/14926709/760099de-4e78-475f-b4d1-c00fec0009cf)
 
 
 # Makelele
