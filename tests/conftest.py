@@ -1,5 +1,6 @@
 import pytest
 from makelele.core import config
+from makelele.services.joker import Jokes
 from starlette.testclient import TestClient
 
 config.API_KEY = "example_key"
@@ -14,3 +15,8 @@ def test_client():
     app = get_app()
     with TestClient(app) as test_client:
         yield test_client
+
+
+@pytest.fixture()
+def jokes():
+    yield Jokes(path=config.DEFAULT_JOKES_PATH)
