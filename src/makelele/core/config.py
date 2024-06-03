@@ -1,11 +1,11 @@
 from pathlib import Path
+
 from decouple import config
 from starlette.datastructures import Secret
 
 APP_VERSION = "0.1.0"
 APP_NAME = "Makelele Joker"
 API_PREFIX = "/api"
-
 
 
 API_KEY: Secret = config("API_KEY", cast=Secret)

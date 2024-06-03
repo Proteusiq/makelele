@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 from makelele.api.routes.router import api_router
 from makelele.core.config import API_PREFIX, APP_NAME, APP_VERSION, IS_DEBUG
 from makelele.core.event_handlers import start_app_handler, stop_app_handler

@@ -1,11 +1,10 @@
 from typing import Literal
+
 from fastapi import APIRouter, Depends
 from starlette.requests import Request
 
 from makelele.core import security
 from makelele.models.jokes import Response
-
-
 
 router = APIRouter()
 
@@ -21,8 +20,6 @@ def get_joke(
 
     """
 
-
-    
     joke: Response = request.app.state.joker.joke(category)
 
     return joke

@@ -8,7 +8,6 @@ from makelele.services.joker import Jokes
 
 
 def _startup_model(app: FastAPI) -> None:
-   
     jokes_instance = Jokes(path=DEFAULT_JOKES_PATH)
     app.state.joker = jokes_instance
 
