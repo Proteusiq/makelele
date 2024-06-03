@@ -1,11 +1,9 @@
 import pytest
-from starlette.config import environ
+from makelele.core import config
 from starlette.testclient import TestClient
 
-from makelele.core import config
-
 config.API_KEY = "example_key"
-config.DEFAULT_JOKES_PATH  = "src" / config.DEFAULT_JOKES_PATH
+config.DEFAULT_JOKES_PATH = "src" / config.DEFAULT_JOKES_PATH
 
 
 from makelele.main import get_app  # noqa: E402
