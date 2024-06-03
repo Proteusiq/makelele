@@ -21,6 +21,7 @@ build-backend = "hatchling.build"
 managed = true
 dev-dependencies = [
     "ruff>=0.4.7",
+    "pytest>=8.2.1",
 ]
 
 [tool.hatch.metadata]
@@ -43,3 +44,4 @@ ignore = [
     "C901",  # too complex
     "W191", # indentation contains tabs
 ]
+
