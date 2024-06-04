@@ -2,9 +2,7 @@
 name = "makelele"
 version = "0.1.0"
 description = "silent noisy simple and customizable jokes API"
-authors = [
-    { name = "Prayson W. Daniel", email = "praysonpi@gmail.com" }
-]
+authors = [{ name = "Prayson W. Daniel", email = "praysonpi@gmail.com" }]
 dependencies = [
     "fastapi>=0.111.0",
     "loguru>=0.7.2",
@@ -20,10 +18,7 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = [
-    "ruff>=0.4.7",
-    "pytest>=8.2.1",
-]
+dev-dependencies = ["ruff>=0.4.7", "pytest>=8.2.1"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -36,13 +31,15 @@ select = [
     "F",  # pyflakes
     "I",  # isort
     "B",  # flake8-bugbear
-    "C4",  # flake8-comprehensions
+    "C4", # flake8-comprehensions
     "UP", # pyupgrade
 ]
 ignore = [
-    "E501",  # line too long, handled by black
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # too complex
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+    "C901", # too complex
     "W191", # indentation contains tabs
 ]
 
+[tool.rye.scripts]
+api = { cmd = "fastapi dev src/makelele/main.py", env = { API_KEY = "testme", DEFAULT_JOKES_PATH = "src/makelele/assets/jokes.toml" } }
