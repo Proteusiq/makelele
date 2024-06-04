@@ -1,0 +1,31 @@
+name: Download joker.toml
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # This cron expression runs the job every day at midnight UTC
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  download-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download joker.toml
+      run: |
+        curl -X 'GET' \
+          'https://makelele.onrender.com/api/v1/joker' \
+          -H 'accept: */*' \
+          -H "token: ${{ secrets.API_TOKEN }}" \
+          -o src/makelele/assets/joker.toml
+
+    - name: Commit and push joker.toml
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add joker.toml
+        git commit -m 'Add joker.toml'
+        git push
+
