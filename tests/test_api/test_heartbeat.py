@@ -1,8 +1,3 @@
-from makelele.main import get_app
-
-app = get_app()
-
-
 def test_heartbeat(test_client) -> None:
     response = test_client.get("/api/health/heartbeat")
     assert response.status_code == 200
