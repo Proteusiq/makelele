@@ -16,7 +16,7 @@ def get_home(
 
     home = Home(
         name=APP_NAME,
-        message=f"There are {len(categories)}: {categories_names}. Enjoy 🍺",
+        message=f"Enjoy 🍺: number of categories={len(categories):r} : names= {categories_names}.",
     )
 
     return home
