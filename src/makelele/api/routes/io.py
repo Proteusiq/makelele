@@ -9,7 +9,9 @@ from makelele.core.config import (
 )
 from makelele.services import io
 
-router = APIRouter(dependencies=[Depends(security.validate_request)],)
+router = APIRouter(
+    dependencies=[Depends(security.validate_request)],
+)
 
 
 @router.post(

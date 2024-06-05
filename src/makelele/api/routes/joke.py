@@ -6,9 +6,11 @@ from starlette.requests import Request
 from makelele.core import security
 from makelele.models.jokes import Response
 
-router = APIRouter(dependencies=[
+router = APIRouter(
+    dependencies=[
         Depends(security.validate_request),
-    ],)
+    ],
+)
 
 
 @router.get(
