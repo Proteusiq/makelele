@@ -120,6 +120,7 @@ Open your browser and go to http://localhost:8000/docs to view API swagger.
     }
   ```
 </details>
+
 ### Extending the API
 To add more categories or quotes, simply download and edit the jokes.toml file and upload.
 
