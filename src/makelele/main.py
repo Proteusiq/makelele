@@ -13,7 +13,7 @@ from makelele.core.config import (
     DEFAULT_JOKES_PATH,
     IS_DEBUG,
 )
-from makelele.services.joker import Jokes
+from makelele.services.joke import Jokes
 
 observer = Observer()
 

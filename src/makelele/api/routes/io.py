@@ -9,12 +9,11 @@ from makelele.core.config import (
 )
 from makelele.services import io
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(security.validate_request)],)
 
 
 @router.post(
     "/joker",
-    dependencies=[Depends(security.validate_request)],
 )
 async def create_upload_file(
     file: Annotated[UploadFile, File(description="A toml file with custom jokes")],
@@ -31,7 +30,6 @@ async def create_upload_file(
 @router.get(
     "/joker",
     response_class=responses.StreamingResponse,
-    dependencies=[Depends(security.validate_request)],
 )
 async def download_file():
     response = responses.StreamingResponse(

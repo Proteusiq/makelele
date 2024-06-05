@@ -3,7 +3,7 @@ name: Download joker.toml
 on:
   schedule:
     - cron: "0 0 * * *" # runs the job every day at midnight UTC
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   download-file:
@@ -19,7 +19,7 @@ jobs:
             'https://makelele.onrender.com/api/v1/joker' \
             -H 'accept: */*' \
             -H "token: ${{ secrets.API_TOKEN }}" \
-            -o "src/makelele/assets/joker.toml"
+            -o "src/makelele/assets/jokes.toml"
 
       - name: Commit and push joker.toml
         run: |

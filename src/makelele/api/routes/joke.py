@@ -6,16 +6,15 @@ from starlette.requests import Request
 from makelele.core import security
 from makelele.models.jokes import Response
 
-router = APIRouter()
+router = APIRouter(dependencies=[
+        Depends(security.validate_request),
+    ],)
 
 
 @router.get(
     "/joke/{category}",
     response_model=Response,
     name="joke",
-    dependencies=[
-        Depends(security.validate_request),
-    ],
 )
 def get_joke(
     request: Request,

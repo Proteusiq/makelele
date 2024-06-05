@@ -1,6 +1,6 @@
 import pytest
 from makelele.core import config
-from makelele.services.joker import Jokes
+from makelele.services.joke import Jokes
 from starlette.routing import _DefaultLifespan
 from starlette.testclient import TestClient
 
