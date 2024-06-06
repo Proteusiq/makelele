@@ -1,4 +1,5 @@
-name: Download joker.toml
+
+name: Download jokes.toml
 
 on:
   schedule:
@@ -21,10 +22,16 @@ jobs:
             -H "token: ${{ secrets.API_TOKEN }}" \
             -o "src/makelele/assets/jokes.toml"
 
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet || echo "::set-output name=has_changes::true"
+
       - name: Commit and push joker.toml
+        if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add src/makelele/assets/jokes.toml
-          git commit -m 'Add joker.toml'
+          git commit -m 'Add jokes.toml'
           git push
