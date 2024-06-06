@@ -25,10 +25,16 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet || echo "::set-output name=has_changes::true"
+          if git diff --quiet; then
+            echo "No changes found."
+            echo "has_changes=false" >> $GITHUB_ENV
+          else
+            echo "Changes found."
+            echo "has_changes=true" >> $GITHUB_ENV
+          fi
 
       - name: Commit and push joker.toml
-        if: steps.check_changes.outputs.has_changes == 'true'
+        if: env.has_changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
