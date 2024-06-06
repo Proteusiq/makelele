@@ -11,12 +11,15 @@ router = APIRouter()
 def get_home(
     request: Request,
 ) -> Home:
-    categories = request.app.state.joker.joker["jokes"].keys()
-    categories_names = ",".join(category for category in categories)
+    categories = request.app.state.joker.joker["jokes"]
+    categories_names = (name for name in categories.keys())
+    categories_details = ",".join(
+        f"{name}({len(categories[name])})" for name in categories_names
+    )
 
     home = Home(
         name=APP_NAME,
-        message=f"Enjoy 🍺: number of categories = {len(categories)!r} : names = [{categories_names}].",
+        message=f"Enjoy 🍺: number of categories = {len(categories)!r} : names = [{categories_details}].",
     )
 
     return home
