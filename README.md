@@ -1,6 +1,5 @@
 ![joker](https://github.com/Proteusiq/makelele/assets/14926709/760099de-4e78-475f-b4d1-c00fec0009cf)
 
-
 # Makelele
 
 **Makelele** (Swahili for `noise`) is a simple API for retrieving random custom jokes. Built using FastAPI, it is designed to serve various categories of jokes, making it easy to integrate humor into your applications.
@@ -22,19 +21,21 @@
 ### Installation
 
 1. **Clone the repository**:
+
 ```sh
 git clone https://github.com/yourusername/makelele.git
 cd makelele/
 ```
-  
+
 2. **Activate a virtual environment**:
 
 ```sh
 rye sync
-source .venv/bin/activate 
+source .venv/bin/activate
 ```
 
 ### Usage
+
 Create your `jokes.toml` file:
 In makelele/assets/, create a `jokes.toml` file with the following structure:
 
@@ -55,7 +56,7 @@ fastapi dev makelele/main.py
 ```
 
 **Access the API**:
-Open your browser and go to http://localhost:8000/docs to view API swagger.
+Open your browser and go to <http://localhost:8000/docs> to view API swagger.
 
 ### API Endpoints
 
@@ -68,28 +69,32 @@ Open your browser and go to http://localhost:8000/docs to view API swagger.
 - **Method:** `GET`
 - **Success Response:**
   - **Code:** 200 OK
-  - **Content:** 
+  - **Content:**
+
     ```json
-    {"is_alive": true}
+    { "is_alive": true }
     ```
 
 #### 2. Get Joke by Category
 
 - **URL:** `/api/v1/joke/{category}`
 - **Method:** `GET`
-- **URL Parameters:** 
+- **URL Parameters:**
   - `category=[string]` (required) - The category of jokes you want to retrieve.
 - **Success Response:**
   - **Code:** 200 OK
-  - **Content:** 
+  - **Content:**
+
     ```json
-    {"joke": "A random joke from the specified category"}
+    { "joke": "A random joke from the specified category" }
     ```
+
 - **Error Response:**
   - **Code:** 404 Not Found
-  - **Content:** 
+  - **Content:**
+
     ```json
-    {"detail": "Category not found"}
+    { "detail": "Category not found" }
     ```
 
 #### 3. Download File
@@ -107,7 +112,8 @@ Open your browser and go to http://localhost:8000/docs to view API swagger.
   - **Code:** 200 OK
 - **Error Response:**
   - **Code:** 422 Unprocessable Entity
-  - **Content:** 
+  - **Content:**
+
     ```json
     {
       "detail": [
@@ -118,19 +124,28 @@ Open your browser and go to http://localhost:8000/docs to view API swagger.
         }
       ]
     }
+    ```
+
   ```
-</details>
+  </details>
+  ```
 
 ### Extending the API
+
 To add more categories or quotes, simply download and edit the jokes.toml file and upload.
 
 ### Contributing
+
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
 ### License
+
 This project is licensed under the MIT License.
 
-###  Acknowledgements
+### Acknowledgements
+
 FastAPI for providing an excellent framework.
-___
+
+---
+
 Enjoy using Makelele and bring some noise to your applications!
