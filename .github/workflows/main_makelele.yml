@@ -28,20 +28,9 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install --no-cache-dir -r requirements.lock
         
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v3
-        with:
-          name: python-app
-          path: |
-            release.zip
-            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -75,4 +64,6 @@ jobs:
         with:
           app-name: 'makelele'
           slot-name: 'Production'
+      - name: Run
+        run: cd src && fastapi run makelele/main.py --host 0.0.0.0 --port 8000
           
